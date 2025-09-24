@@ -1,20 +1,26 @@
 public class Konten {
-    private String namaKonten;
-    private Video video;
-    private Artikel artikel;
-    private Kuis kuis;
+    private String idKonten;
+    private String judulKonten;
+    
+    // public Konten(String judulKonten ){
+    //     this.judulKonten = judulKonten;
+    // }
 
-    Konten(String namaKonten , Video video , Artikel artikel , Kuis kuis){
-        this.namaKonten = namaKonten;
-        this.video = video;
-        this.artikel = artikel;
-        this.kuis = kuis;
+    public void setIdKonten(String idKonten) {
+        this.idKonten = idKonten;
+    }
+    public String getIdKonten() {
+        return idKonten;
     }
 
-    public void setNamaKonten(String namaKonten) {
-        this.namaKonten = namaKonten;
+    public void setjudulKonten(String judulKonten) {
+        this.judulKonten = judulKonten;
     }
-    public String getNamaKonten() {
-        return namaKonten;
+    public String getjudulKonten() {
+        return judulKonten;
     }
+
+    public void infoKonten(){
+        System.out.println("Konten : "+judulKonten);
+    } 
 }
