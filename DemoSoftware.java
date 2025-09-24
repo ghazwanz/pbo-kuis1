@@ -5,6 +5,7 @@ public class DemoSoftware {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Kursus menu = new Kursus();
         int pilihan;
         
         do {
@@ -14,10 +15,10 @@ public class DemoSoftware {
             pilihan = sc.nextInt();
             switch (pilihan) {
                 case 1:
-                    menuMurid();
+                    menu.menuKursus();
                     break;
                 case 2:
-                    menuInstrukur();
+                    // menu.menuInstrukur();
                     break;
                 case 0:
                     System.out.println("Bye!");
@@ -29,41 +30,6 @@ public class DemoSoftware {
 
             }
         } while (true);
-
-    }
-
-    static void menuMurid(){
-        int harga = 0;
-        int pembayaran = 0;
-        
-        do {
-            System.out.println("== Kursus ==");
-            System.out.println("1. Matematika \n2. Fisika \n3. Informatika \n0. Back");
-            System.out.print("Pilih Kursus: ");
-            int pilihKursus = sc.nextInt();
-            switch (pilihKursus) {
-                case 1:
-                    System.out.println("Matematika");
-                    pembayaran += harga;
-                    break;
-                case 2:
-                    System.out.println("Fisika");
-                    pembayaran += harga;
-                    break;
-                case 3:
-                    System.out.println("Informatika");
-                    pembayaran += harga;
-                    break;
-                case 0:
-                    return;
-                
-                default:
-                    System.out.println("pilih yang benar kocag");
-            }
-        } while (true);
-    }
-
-    static void menuInstrukur(){
 
     }
 }
