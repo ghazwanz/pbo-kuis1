@@ -159,7 +159,8 @@ public class Software {
         do {
             System.out.println("\n== MENU INSTRUKTUR ==");
             System.out.println("1. Lihat Kursus yang Dikelola");
-            System.out.println("2. Tambah Konten ke Kursus");
+            System.out.println("2. Tambah Kursus");
+            System.out.println("3. Tambah Konten ke Kursus");
             System.out.println("0. Kembali ke Menu Utama");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
@@ -170,6 +171,9 @@ public class Software {
                     lihatKursusDikelola(instruktur);
                     break;
                 case 2:
+                    tambahKursus(instruktur);
+                    break;
+                case 3:
                     tambahKontenKeKursus(instruktur);
                     break;
                 case 0:
@@ -307,5 +311,21 @@ public class Software {
             default:
                 System.out.println("Pilihan tidak valid.");
         }
+    }
+
+    private void tambahKursus(Instruktur instruktur) {
+        System.out.println("\n== TAMBAH Kursus ==");
+        System.out.print("Masukkan ID Kursus: ");
+        String idKursus = sc.nextLine();
+        
+        System.out.print("Masukkan Nama Kursus: ");
+        String namaKursus = sc.nextLine();
+
+        System.out.print("Masukkan Harga Kursus: ");
+        int hargaKursus = sc.nextInt();
+
+        Kursus kursus = new Kursus(idKursus, namaKursus, instruktur, hargaKursus);
+        instruktur.tambahKursus(kursus);
+        listKursus.add(kursus);
     }
 }
