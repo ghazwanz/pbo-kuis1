@@ -5,10 +5,16 @@ public class Video extends Konten{
     public void setjudulVideo(String newValue){
         judulVideo = newValue;
     }
+    public String getJudulVideo() {
+        return judulVideo;
+    }
     public void setResolusi(String resolusi) {
         this.resolusi = resolusi;
     }
-
+    public String getResolusi() {
+        return resolusi;
+    }
+    
     public void infoVideo(){
         super.infoKonten();
         System.out.println("Judul Video : " + judulVideo);
