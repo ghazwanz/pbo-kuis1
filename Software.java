@@ -34,3 +34,25 @@ public class Software {
         andi.tambahKursus(matematika);
         budi.tambahKursus(fisika);
     }
+
+    private Konten buatVideo(String judul, String resolusi) {
+        Video video = new Video();
+        video.setJudulKonten(judul);
+        video.setResolusi(resolusi);
+        return video;
+    }
+
+    private Konten buatArtikel(String judul, int jumlahHalaman) {
+        Artikel artikel = new Artikel();
+        artikel.setJudulKonten(judul);
+        artikel.setJumlahHalaman(jumlahHalaman);
+        return artikel;
+    }
+
+    private Konten buatKuis(String judul, int jumlahSoal) {
+        Kuis kuis = new Kuis();
+        kuis.setJudulKonten(judul);
+        kuis.setJumlahSoal(jumlahSoal);
+        return kuis;
+    }
+}
