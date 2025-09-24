@@ -1,77 +1,64 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Kursus {
-    Scanner sc = new Scanner(System.in);
-    String namaKursus;
-    int harga;
+    private String idKursus;
+    private String namaKursus;
+    private Instruktur instruktur;
+    private int harga;
+    private List<Konten> listKonten;
 
-// Bagian INSTRUKTOR
-    public void setNamaKursus(String namaKursus) {
+    public Kursus(String idKursus, String namaKursus, Instruktur instruktur, int harga) {
+        this.idKursus = idKursus;
         this.namaKursus = namaKursus;
+        this.instruktur = instruktur;
+        this.harga = harga;
+        this.listKonten = new ArrayList<>();
     }
+
+    public String getIdKursus() {
+        return idKursus;
+    }
+
     public String getNamaKursus() {
         return namaKursus;
     }
 
-    public void setHarga(int harga) {
-        this.harga = harga;
+    public Instruktur getInstruktur() {
+        return instruktur;
     }
+
     public int getHarga() {
         return harga;
     }
-//
 
-// Menu Peserta & Instruktro
-void infoKursus(){
-    System.out.println("Kursus: "+namaKursus);
-    System.out.println("Harga: "+harga);
-    System.out.println();
-}
+    public List<Konten> getListKonten() {
+        return listKonten;
+    }
 
+    public void tambahKonten(Konten konten) {
+        this.listKonten.add(konten);
+    }
 
+    public void infoKursus() {
+        System.out.println("----------------------------------------");
+        System.out.println("ID Kursus        : " + idKursus);
+        System.out.println("Nama Kursus      : " + namaKursus);
+        System.out.println("Instruktur       : " + instruktur.getName());
+        System.out.println("Harga            : Rp" + harga);
+        System.out.println("Jumlah Konten    : " + listKonten.size());
+        System.out.println("----------------------------------------");
+    }
 
-
-
-// Menu Peserta
-    public void menuKursus(){
-        do {
-            System.out.println("== Kursus ==");
-            System.out.println("1. Matematika \n2. Fisika \n3. Informatika \n0. Back");
-            System.out.print("Pilih Kursus: ");
-            int pilihKursus = sc.nextInt();
-
-            //ini nanti sepertinya pake fori, untuk 3 kursus ini
-            switch (pilihKursus) {
-                case 1:
-                    setNamaKursus("Matematika");
-                    // System.out.print("Set Harga: ");
-                    // int harga = sc.nextInt();
-                    setHarga(1000000);
-                    infoKursus();
-                    break;
-
-                case 2:
-                    setNamaKursus("Fisika");
-                    // System.out.print("Set Harga: ");
-                    // int harga = sc.nextInt();
-                    setHarga(1000000);
-                    infoKursus();
-                    break;
-                    
-                case 3:
-                    setNamaKursus("Informatika");
-                    // System.out.print("Set Harga: ");
-                    // int harga = sc.nextInt();
-                    setHarga(1000000);
-                    infoKursus();
-                    break;
-
-                case 0:
-                    return;
-                
-                default:
-                    System.out.println("pilih yang benar kocag");
+    public void tampilkanKonten() {
+        System.out.println("\nKonten dalam kursus " + namaKursus + ":");
+        if (listKonten.isEmpty()) {
+            System.out.println("Belum ada konten.");
+        } else {
+            for (Konten konten : listKonten) {
+                konten.infoKonten();
+                System.out.println();
             }
-        } while (true);
+        }
     }
 }
