@@ -1,19 +1,18 @@
 public class Pembayaran {
-    int total = 0;
-    Kursus harga;
+    private Kursus kursusDibeli;
+    private Peserta pembeli;
 
-    public void setHarga(Kursus harga) {
-        this.harga = harga;
-    }
-    
-    public void hitungBiayaTotal(){
-        total += harga.getHarga();
+    public Pembayaran(Peserta pembeli, Kursus kursusDibeli) {
+        this.pembeli = pembeli;
+        this.kursusDibeli = kursusDibeli;
     }
 
-    
-    void menuPembayaran(){
-        System.out.println("== Menu Pembayaran ==");
-        hitungBiayaTotal();
-        System.out.println("Tagihan: " + total);
+    public void prosesPembayaran() {
+        System.out.println("\n== Proses Pembayaran ==");
+        System.out.println("Pembeli     : " + pembeli.getName());
+        System.out.println("Kursus      : " + kursusDibeli.getNamaKursus());
+        System.out.println("Harga       : Rp" + kursusDibeli.getHarga());
+        System.out.println("Status      : Berhasil");
+        System.out.println("---------------------------------");
     }
 }
