@@ -8,7 +8,6 @@ public class Software {
     private Scanner sc = new Scanner(System.in);
 
     public Software() {
-        // Data dummy untuk demonstrasi
         Instruktur andi = new Instruktur("1", "Andi", "andi@edutech.com");
         Instruktur budi = new Instruktur("2", "Budi", "budi@edutech.com");
         Peserta peserta1 = new Peserta("3", "Siswa A", "siswaA@mail.com");
@@ -214,7 +213,6 @@ public class Software {
                 System.out.println("Anda sudah terdaftar di kursus ini.");
             } else {
                 peserta.daftarKursus(kursusPilihan);
-                // Proses pembayaran sederhana
                 Pembayaran pembayaran = new Pembayaran(peserta, kursusPilihan);
                 pembayaran.prosesPembayaran();
             }

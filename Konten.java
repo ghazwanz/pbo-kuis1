@@ -22,6 +22,5 @@ public abstract class Konten {
         this.namaKonten = namaKonten;
     }
 
-    // Metode abstrak yang harus diimplementasikan oleh kelas turunan
     public abstract void infoKonten();
 }
