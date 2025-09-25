@@ -19,40 +19,19 @@ public class Software {
         Kursus matematika = new Kursus("K-01", "Matematika Dasar", andi, 100000);
         Kursus fisika = new Kursus("K-02", "Fisika Modern", budi, 150000);
 
-        matematika.tambahKonten(buatVideo("Video Pengantar", "1080p"));
-        matematika.tambahKonten(buatArtikel("Artikel Aljabar", 5));
-        matematika.tambahKonten(buatKuis("Kuis Bab 1", 10));
+        matematika.tambahKonten(andi.buatVideo("Video Pengantar", "1080p"));
+        matematika.tambahKonten(andi.buatArtikel("Artikel Aljabar", 5));
+        matematika.tambahKonten(andi.buatKuis("Kuis Bab 1", 10));
 
-        fisika.tambahKonten(buatVideo("Video Fisika Kuantum", "4K"));
-        fisika.tambahKonten(buatArtikel("Artikel Relativitas", 8));
-        fisika.tambahKonten(buatKuis("Kuis Bab 2", 15));
+        fisika.tambahKonten(budi.buatVideo("Video Fisika Kuantum", "4K"));
+        fisika.tambahKonten(budi.buatKuis("Kuis Bab 2", 15));
+        fisika.tambahKonten(budi.buatArtikel("Artikel Relativitas", 8));
 
         listKursus.add(matematika);
         listKursus.add(fisika);
 
         andi.tambahKursus(matematika);
         budi.tambahKursus(fisika);
-    }
-
-    private Konten buatVideo(String judul, String resolusi) {
-        Video video = new Video();
-        video.setJudulKonten(judul);
-        video.setResolusi(resolusi);
-        return video;
-    }
-
-    private Konten buatArtikel(String judul, int jumlahHalaman) {
-        Artikel artikel = new Artikel();
-        artikel.setJudulKonten(judul);
-        artikel.setJumlahHalaman(jumlahHalaman);
-        return artikel;
-    }
-
-    private Konten buatKuis(String judul, int jumlahSoal) {
-        Kuis kuis = new Kuis();
-        kuis.setJudulKonten(judul);
-        kuis.setJumlahSoal(jumlahSoal);
-        return kuis;
     }
 
     public void run() {
@@ -72,10 +51,10 @@ public class Software {
 
             switch (pilihan) {
                 case 1:
-                    menuPeserta();
+                    tampilkanMenuPeserta();
                     break;
                 case 2:
-                    menuInstruktur();
+                    tampilkanMenuInstruktur();
                     break;
                 case 0:
                     System.out.println("Terima kasih, sampai jumpa!");
@@ -86,7 +65,7 @@ public class Software {
         } while (pilihan != 0);
     }
 
-    private void menuPeserta() {
+    private void tampilkanMenuPeserta() {
         System.out.println("\n== LOGIN PESERTA ==");
         System.out.print("Masukkan ID Anda: ");
         String idPeserta = sc.nextLine();
@@ -135,7 +114,7 @@ public class Software {
         } while (pilihan != 0);
     }
 
-    private void menuInstruktur() {
+    private void tampilkanMenuInstruktur() {
         System.out.println("\n== LOGIN INSTRUKTUR ==");
         System.out.print("Masukkan ID Anda: ");
         String idInstruktur = sc.nextLine();

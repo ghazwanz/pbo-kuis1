@@ -18,6 +18,27 @@ public class Instruktur extends User {
         return kursusDikelola;
     }
 
+    public Konten buatVideo(String judul, String resolusi) {
+        Video video = new Video();
+        video.setJudulKonten(judul);
+        video.setResolusi(resolusi);
+        return video;
+    }
+
+    public Konten buatArtikel(String judul, int jumlahHalaman) {
+        Artikel artikel = new Artikel();
+        artikel.setJudulKonten(judul);
+        artikel.setJumlahHalaman(jumlahHalaman);
+        return artikel;
+    }
+
+    public Konten buatKuis(String judul, int jumlahSoal) {
+        Kuis kuis = new Kuis();
+        kuis.setJudulKonten(judul);
+        kuis.setJumlahSoal(jumlahSoal);
+        return kuis;
+    }
+
     public void infoInstruktur() {
         super.infoUser();
         System.out.println("Kursus yang dikelola:");
@@ -25,4 +46,5 @@ public class Instruktur extends User {
             System.out.println("  - " + k.getNamaKursus());
         }
     }
+    
 }
