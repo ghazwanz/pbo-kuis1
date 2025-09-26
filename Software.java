@@ -179,6 +179,9 @@ public class Software {
         System.out.print("Masukkan ID Kursus yang ingin Anda daftar: ");
         String idKursus = sc.nextLine();
 
+        System.out.print("Masukkan Nominal Pembayaran: ");
+        int harga = sc.nextInt();
+
         Kursus kursusPilihan = null;
         for (Kursus kursus : listKursus) {
             if (kursus.getIdKursus().equalsIgnoreCase(idKursus)) {
@@ -191,9 +194,17 @@ public class Software {
             if (peserta.getKursusDiambil().contains(kursusPilihan)) {
                 System.out.println("Anda sudah terdaftar di kursus ini.");
             } else {
+                if (harga < kursusPilihan.getHarga()) {
+                    System.out.printf("Tidak dapat melakukan pembayaran untuk kursus %s!\n",kursusPilihan.getNamaKursus());
+                    System.out.println("Nominal Pembayaran tidak mencukupi");
+                    return;
+                }
                 peserta.daftarKursus(kursusPilihan);
                 Pembayaran pembayaran = new Pembayaran(peserta, kursusPilihan);
                 pembayaran.prosesPembayaran();
+                if (harga > kursusPilihan.getHarga()) {
+                    System.out.printf("Kembalian %s\n",harga - kursusPilihan.getHarga());
+                }
             }
         } else {
             System.out.println("ID Kursus tidak ditemukan.");
